@@ -67,5 +67,8 @@ credentials/*.json
 content.json
 content/*.png
 content/*.jpg
+content/*.js
+content/*.htm
+content/*.mov
 
 .DS_Store
