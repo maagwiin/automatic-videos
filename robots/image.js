@@ -3,7 +3,8 @@ const google = require('googleapis').google
 const customSearch = google.customsearch('v1')
 const state = require('./state.js')
 
-const googleSearchCredentials = require('../credentials/google-search.json')
+const googleSearchApiKey = process.env.GOOGLE_SEARCH_API_KEY
+const googleSearchEngineId = process.env.GOOGLE_SEARCH_ENGINE_ID
 
 async function robot() {
     const content = state.load()
@@ -23,8 +24,8 @@ async function robot() {
 
     async function fetchGoogleAndReturnImagesLinks(query){
         const response = await customSearch.cse.list({
-            auth: googleSearchCredentials.apiKey,
-            cx: googleSearchCredentials.searchEngineId,
+            auth: googleSearchApiKey,
+            cx: googleSearchEngineId,
             q: query,
             searchType: 'image',
             imgSize: 'huge',

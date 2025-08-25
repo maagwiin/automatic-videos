@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const robots = {
     input: require('./robots/input.js'),
     text: require('./robots/text.js'),
