@@ -14,10 +14,11 @@ async function robot() {
 
     async function fetchImagesOfAllSentences(content){
         for (const sentence of content.sentences) {
-            const query = `${content.searchTerm} ${sentence.keywords[0]}`
-                sentence.images = await fetchGoogleAndReturnImagesLinks(query)
+            const hasKeywords = sentence.keywords && sentence.keywords.length > 0
+            const searchTerm = hasKeywords ? `${content.searchTerm} ${sentence.keywords[0]}` : content.searchTerm
 
-                sentence.googleSearchQuery = query
+            sentence.images = await fetchGoogleAndReturnImagesLinks(searchTerm)
+            sentence.googleSearchQuery = searchTerm
         }
     }
 
