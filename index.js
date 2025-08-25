@@ -7,14 +7,32 @@ const robots = {
 }
 
 async function start() {
-        
-    //robots.input()
-    //await robots.text()
-    //await robots.image()
-    await robots.video()
+    try {
+        await robots.input()
+    } catch (error) {
+        console.error('Erro no robot input:', error)
+    }
+
+    try {
+        await robots.text()
+    } catch (error) {
+        console.error('Erro no robot text:', error)
+    }
+
+    try {
+        await robots.image()
+    } catch (error) {
+        console.error('Erro no robot image:', error)
+    }
+
+    try {
+        await robots.video()
+    } catch (error) {
+        console.error('Erro no robot video:', error)
+    }
 
     const content = robots.state.load()
-    console.dir(content, { depht: null })
+    console.dir(content, { depth: null })
 }
 
 start()
