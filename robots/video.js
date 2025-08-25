@@ -25,7 +25,7 @@ async function robot() {
         return new Promise((resolve, reject) => {
             const inputFile = `./content/${sentenceIndex}--original.png[0]`
             const outputFile = `./content/${sentenceIndex}--converted.png`
-            const width = 1928
+            const width = 1920
             const height = 1080
 
         gm()
